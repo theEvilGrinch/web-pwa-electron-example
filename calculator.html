@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      border: 0;
+      padding: 0;
+      white-space: nowrap;
+      clip-path: inset(100%);
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .calculator {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    input {
+      font-size: 20px;
+      text-align: right;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 15px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background: #e0e0e0;
+    }
+
+    button:hover {
+      background: #d0d0d0;
+    }
+
+    .operator {
+      background: #f9a825;
+      color: white;
+    }
+
+    .operator:hover {
+      background: #e68900;
+    }
+
+    .equal {
+      background: #388e3c;
+      color: white;
+    }
+
+    .equal:hover {
+      background: #2e7d32;
+    }
+
+    .clear {
+      background: #d32f2f;
+      color: white;
+    }
+
+    .clear:hover {
+      background: #c62828;
+    }
+
+    [popover]::backdrop {
+      background-color: rgba(0, 0, 0, .2);
+    }
+
+    [popover] {
+      animation: fadeIn 0.3s forwards;
+    }
+
+    /* Keyframes for dialog and popover elements */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Simple Calculator</h1>
+</header>
+<section class="calculator">
+  <h2>JavaScript Calculator Example</h2>
+  <label for="display">Enter an expression:</label>
+  <input type="text" id="display">
+  <div class="buttons">
+    <button onclick="clearDisplay()" class="clear">C</button>
+    <button onclick="appendToDisplay('7')">7</button>
+    <button onclick="appendToDisplay('8')">8</button>
+    <button onclick="appendToDisplay('9')">9</button>
+    <button onclick="appendToDisplay('/') " class="operator">/</button>
+    <button onclick="appendToDisplay('4')">4</button>
+    <button onclick="appendToDisplay('5')">5</button>
+    <button onclick="appendToDisplay('6')">6</button>
+    <button onclick="appendToDisplay('*')" class="operator">*</button>
+    <button onclick="appendToDisplay('1')">1</button>
+    <button onclick="appendToDisplay('2')">2</button>
+    <button onclick="appendToDisplay('3')">3</button>
+    <button onclick="appendToDisplay('-')" class="operator">-</button>
+    <button onclick="appendToDisplay('0')">0</button>
+    <button onclick="appendToDisplay('.')">.</button>
+    <button onclick="calculateResult()" class="equal">=</button>
+    <button onclick="appendToDisplay('+')" class="operator">+</button>
+  </div>
+</section>
+<dialog class="js-errorDialog">
+  <button class="js-closeErrorDialog" onclick="errorDialog.close();">
+    <span aria-hidden=”true”>❌ Close</span>
+  </button>
+  <p>Input error! Please enter only numbers and mathematical operators!</p>
+</dialog>
+<script>
+  const display = document.getElementById("display");
+  const closeErrorDialog = document.querySelector(".js-closeErrorDialog");
+  const errorDialog = document.querySelector(".js-errorDialog");
+
+  function appendToDisplay(value) {
+    display.value += value;
+  }
+
+  function clearDisplay() {
+    display.value = "";
+  }
+
+  function calculateResult() {
+    const expression = display.value;
+    try {
+      const result = Function('"use strict"; return (' + expression + ')')();
+      // const result = Function('return ' + expression)();
+      // const result = eval(expression);
+      display.value = result;
+    } catch (error) {
+      errorDialog.showModal();
+      clearDisplay();
+    }
+  }
+
+  display.addEventListener("keydown", function(event) {
+    if (event.code === "Enter") {
+      calculateResult();
+    }
+  });
+  document.addEventListener('keydown', function(event) {
+    if (event.code === 'Escape') {
+      clearDisplay();
+      errorDialog.close();
+    }
+  });
+</script>
+</body>
+</html>
