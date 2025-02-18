@@ -7,6 +7,7 @@
   <style>
     body {
       font-family: system-ui, sans-serif;
+      font-size: 24px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -31,12 +32,22 @@
       margin-top: 0;
     }
 
+    .dark-mode {
+      background-color: #333;
+      color: white;
+    }
+
     .calculator {
       background: #fff;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       text-align: center;
+      transition: background 0.3s;
+    }
+
+    .dark-mode .calculator {
+      background: #444;
     }
 
     input {
@@ -59,45 +70,44 @@
       border: none;
       border-radius: 5px;
       background: #e0e0e0;
+      transition: transform 0.1s;
     }
 
-    button:hover {
-      background: #d0d0d0;
+    button:active {
+      transform: scale(0.95);
     }
 
-    .operator {
+    .theme-toggle, .clear, .operator {
       background: #f9a825;
       color: white;
+      font-weight: bold;
     }
-
-    .operator:hover {
-      background: #e68900;
+    .theme-toggle{
+      background-image: url("color-palette.svg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 51px;
     }
-
     .equal {
       background: #388e3c;
       color: white;
     }
 
-    .equal:hover {
-      background: #2e7d32;
-    }
-
-    .clear {
-      background: #d32f2f;
-      color: white;
+    .clear, .theme-toggle {
+      background-color: #d32f2f;
     }
 
     .clear:hover {
       background: #c62828;
     }
 
-    [popover]::backdrop {
-      background-color: rgba(0, 0, 0, .2);
+    dialog::backdrop {
+      background-color: rgb(0 0 0 / 0.3);
     }
 
-    [popover] {
-      animation: fadeIn 0.3s forwards;
+    dialog {
+      animation: fadeIn .3s ease-in-out;
     }
 
     /* Keyframes for dialog and popover elements */
@@ -116,38 +126,41 @@
   <h1>Simple Calculator</h1>
 </header>
 <section class="calculator">
-  <h2>JavaScript Calculator Example</h2>
+  <h2>Enhanced JavaScript Calculator</h2>
   <label for="display">Enter an expression:</label>
   <input type="text" id="display">
   <div class="buttons">
     <button onclick="clearDisplay()" class="clear">C</button>
+    <button onclick="appendToDisplay('√')">√</button>
+    <button onclick="appendToDisplay('^')">^</button>
+    <button onclick="appendToDisplay('%')">%</button>
+    <button onclick="appendToDisplay('/')" class="operator">/</button>
     <button onclick="appendToDisplay('7')">7</button>
     <button onclick="appendToDisplay('8')">8</button>
     <button onclick="appendToDisplay('9')">9</button>
-    <button onclick="appendToDisplay('/') " class="operator">/</button>
+    <button onclick="appendToDisplay('*')" class="operator">*</button>
     <button onclick="appendToDisplay('4')">4</button>
     <button onclick="appendToDisplay('5')">5</button>
     <button onclick="appendToDisplay('6')">6</button>
-    <button onclick="appendToDisplay('*')" class="operator">*</button>
+    <button onclick="appendToDisplay('-')" class="operator">-</button>
     <button onclick="appendToDisplay('1')">1</button>
     <button onclick="appendToDisplay('2')">2</button>
     <button onclick="appendToDisplay('3')">3</button>
-    <button onclick="appendToDisplay('-')" class="operator">-</button>
+    <button onclick="appendToDisplay('+')" class="operator">+</button>
     <button onclick="appendToDisplay('0')">0</button>
     <button onclick="appendToDisplay('.')">.</button>
     <button onclick="calculateResult()" class="equal">=</button>
-    <button onclick="appendToDisplay('+')" class="operator">+</button>
+    <button onclick="toggleDarkMode()" class="theme-toggle"></button>
   </div>
 </section>
 <dialog class="js-errorDialog">
-  <button class="js-closeErrorDialog" onclick="errorDialog.close();">
+  <button onclick="clearDisplay();errorDialog.close();">
     <span aria-hidden=”true”>❌ Close</span>
   </button>
-  <p>Input error! Please enter only numbers and mathematical operators!</p>
+  <p>Input error! Please enter a valid value, only numbers and mathematical operators available!</p>
 </dialog>
 <script>
   const display = document.getElementById("display");
-  const closeErrorDialog = document.querySelector(".js-closeErrorDialog");
   const errorDialog = document.querySelector(".js-errorDialog");
 
   function appendToDisplay(value) {
@@ -159,15 +172,14 @@
   }
 
   function calculateResult() {
-    const expression = display.value;
     try {
-      const result = Function('"use strict"; return (' + expression + ')')();
-      // const result = Function('return ' + expression)();
-      // const result = eval(expression);
-      display.value = result;
-    } catch (error) {
+      let expression = display.value
+      .replace(/√(\d+)/g, 'Math.sqrt($1)')
+      .replace(/(\d+)\^(\d+)/g, 'Math.pow($1, $2)')
+      .replace(/(\d+)%/g, '($1 / 100)');
+      display.value = Function("return " + expression)();
+    } catch {
       errorDialog.showModal();
-      clearDisplay();
     }
   }
 
@@ -182,6 +194,10 @@
       errorDialog.close();
     }
   });
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+  }
 </script>
 </body>
 </html>

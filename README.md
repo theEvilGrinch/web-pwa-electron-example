@@ -5,9 +5,11 @@ This is a basic calculator built using HTML, CSS, and JavaScript. It was created
 
 ## Features
 - Supports basic arithmetic operations: addition (+), subtraction (-), multiplication (*), and division (/)
+- Additional operations: square root (√), exponentiation (^), and percentage (%)
 - Input field for entering expressions using the keyboard or on-screen buttons
 - Press `Enter` to calculate the result
 - Use the `Esc` key or `C` button to clear the input
+- Toggle between light and dark mode for better user experience
 - Responsive design with a simple and clean UI
 - Error handling for invalid expressions
 
@@ -20,10 +22,10 @@ This is a basic calculator built using HTML, CSS, and JavaScript. It was created
 1. Enter numbers and operators using the on-screen buttons or your keyboard (You can type directly into the input field).
 2. Press the `=` button or `Enter` key to calculate the result.
 3. Use the `Esc` key or `C` button to clear the input.
+4. Toggle the theme using the palette button for light/dark mode.
 
 ## Live Demo
 Try the calculator here: [Live Demo](https://theevilgrinch.github.io/js-calculator/)
 
 ## License
 This project is open-source and available under the MIT License.
-
