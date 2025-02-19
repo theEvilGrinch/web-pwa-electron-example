@@ -1,31 +1,45 @@
 # Simple JavaScript Calculator
 
 ## Description
-This is a basic calculator built using HTML, CSS, and JavaScript. It was created as a practice project to enhance JavaScript skills, particularly in DOM manipulation and event handling.
+This is a modern calculator built using HTML, CSS, and JavaScript. It features an adaptive design that responds to system color scheme preferences and provides a seamless user experience with enhanced accessibility.
 
 ## Features
 - Supports basic arithmetic operations: addition (+), subtraction (-), multiplication (*), and division (/)
-- Additional operations: square root (√), exponentiation (^), and percentage (%)
-- Input field for entering expressions using the keyboard or on-screen buttons
-- Press `Enter` to calculate the result
-- Use the `Esc` key or `C` button to clear the input
-- Toggle between light and dark mode for better user experience
-- Responsive design with a simple and clean UI
-- Error handling for invalid expressions
+- Advanced mathematical functions:
+  - Square root (√)
+  - Exponentiation (with visual num^exponent notation)
+  - Percentage calculations (%)
+- Smart system theme integration:
+  - Automatically adapts to system color scheme preferences
+  - Manual theme toggle with smooth transitions
+  - Persistent theme selection
+- Enhanced user experience:
+  - Input field with autofocus
+  - Support for both Enter and NumpadEnter keys
+  - Responsive design with smooth animations
+  - Clear visual feedback on button interactions
+  - Comprehensive error handling with modal dialogs
+- Accessibility features:
+  - Semantic HTML structure
+  - Proper ARIA attributes
+  - Keyboard navigation support
+  - High contrast color scheme
 
 ## Technologies Used
-- HTML
-- CSS
-- JavaScript
+- HTML5
+- Modern CSS (including CSS custom properties and transitions)
+- JavaScript (ES6+)
 
 ## How to Use
-1. Enter numbers and operators using the on-screen buttons or your keyboard (You can type directly into the input field).
-2. Press the `=` button or `Enter` key to calculate the result.
-3. Use the `Esc` key or `C` button to clear the input.
-4. Toggle the theme using the palette button for light/dark mode.
+1. Enter expressions using the on-screen buttons or keyboard
+2. Press `=` button or `Enter`/`NumpadEnter` key to calculate
+3. Use `Esc` key or `C` button to clear input
+4. Toggle between light/dark themes using the palette button
+   - Respects system color scheme by default
+   - Allows manual override with persistent selection
 
 ## Live Demo
-Try the calculator here: [Live Demo](https://theevilgrinch.github.io/js-calculator/)
+Try the calculator here: <a href="https://theevilgrinch.github.io/js-calculator/" target="_blank" rel="noopener noreferrer">Live Demo</a>
 
 ## License
 This project is open-source and available under the MIT License.

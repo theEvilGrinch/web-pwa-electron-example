@@ -6,13 +6,14 @@
   <title>Calculator</title>
   <style>
     body {
+      color-scheme: light dark;
       font-family: system-ui, sans-serif;
       font-size: 24px;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f4f4f4;
+      transition: background .3s, color .3s;
     }
 
     h1 {
@@ -30,24 +31,6 @@
 
     h2 {
       margin-top: 0;
-    }
-
-    .dark-mode {
-      background-color: #333;
-      color: white;
-    }
-
-    .calculator {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      transition: background 0.3s;
-    }
-
-    .dark-mode .calculator {
-      background: #444;
     }
 
     input {
@@ -69,26 +52,35 @@
       cursor: pointer;
       border: none;
       border-radius: 5px;
-      background: #e0e0e0;
-      transition: transform 0.1s;
+      transition: transform 0.15s, background .3s, color .3s;
+    }
+
+    .calculator {
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: background .3s;
     }
 
     button:active {
       transform: scale(0.95);
     }
 
-    .theme-toggle, .clear, .operator {
-      background: #f9a825;
+    .theme-toggle, .clear {
       color: white;
       font-weight: bold;
     }
-    .theme-toggle{
+
+    .theme-toggle {
       background-image: url("color-palette.svg");
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       min-height: 51px;
     }
+
+
     .equal {
       background: #388e3c;
       color: white;
@@ -110,7 +102,6 @@
       animation: fadeIn .3s ease-in-out;
     }
 
-    /* Keyframes for dialog and popover elements */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -118,6 +109,56 @@
       to {
         opacity: 1;
       }
+    }
+
+    .operator {
+      background-color: #ff9800;
+        color: #333;
+      font-weight: bold;
+    }
+
+    @media (prefers-color-scheme: light) {
+      body {
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      .calculator {
+        background: #fff;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #333;
+        color: #f4f4f4;
+      }
+
+      .calculator {
+        background: #444;
+      }
+    }
+
+    /*noinspection CssUnusedSymbol*/
+    .dark-mode {
+      background-color: #333;
+      color: #f4f4f4;
+      color-scheme: dark;
+    }
+
+    /*noinspection CssUnusedSymbol*/
+    .light-mode {
+      background-color: #f4f4f4;
+      color: #333;
+      color-scheme: light;
+    }
+
+    .dark-mode .calculator {
+      background: #444;
+    }
+
+    .light-mode .calculator {
+      background: #fff;
     }
   </style>
 </head>
@@ -128,12 +169,12 @@
 <section class="calculator">
   <h2>Enhanced JavaScript Calculator</h2>
   <label for="display">Enter an expression:</label>
-  <input type="text" id="display">
+  <input type="text" id="display" autofocus>
   <div class="buttons">
     <button onclick="clearDisplay()" class="clear">C</button>
-    <button onclick="appendToDisplay('√')">√</button>
-    <button onclick="appendToDisplay('^')">^</button>
-    <button onclick="appendToDisplay('%')">%</button>
+    <button onclick="appendToDisplay('√');" class="operator"><sup>2</sup>√</button>
+    <button onclick="appendToDisplay('^')" class="operator"><sub>num</sub>^<sup>exponent</sup></button>
+    <button onclick="appendToDisplay('%')" class="operator">%</button>
     <button onclick="appendToDisplay('/')" class="operator">/</button>
     <button onclick="appendToDisplay('7')">7</button>
     <button onclick="appendToDisplay('8')">8</button>
@@ -184,7 +225,8 @@
   }
 
   display.addEventListener("keydown", function(event) {
-    if (event.code === "Enter") {
+    if ((event.code === "Enter" || event.code === "NumpadEnter") && (display.value !== "")) {
+      console.log('ent');
       calculateResult();
     }
   });
@@ -196,7 +238,9 @@
   });
 
   function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
+    let isColorThemeDark = window.matchMedia('(prefers-color-scheme: dark)');
+    isColorThemeDark.matches ?
+        document.body.classList.toggle("light-mode") : document.body.classList.toggle("dark-mode");
   }
 </script>
 </body>
