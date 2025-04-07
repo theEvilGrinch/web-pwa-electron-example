@@ -113,7 +113,7 @@
 
     .operator {
       background-color: #ff9800;
-        color: #333;
+      color: #333;
       font-weight: bold;
     }
 
@@ -160,6 +160,17 @@
     .light-mode .calculator {
       background: #fff;
     }
+
+    .back-to-github {
+      grid-column: 2 / span 3;
+      align-content: center;
+    }
+
+    .memory-section {
+      font-size: 20px;
+      color: #c62828;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -170,11 +181,19 @@
   <h2>Enhanced JavaScript Calculator</h2>
   <label for="display">Enter an expression:</label>
   <input type="text" id="display" autofocus>
+  <div class="memory-section">
+    <span class="memory-section__name">Memory:</span>
+    <span id="memory-section__value">0</span>
+  </div>
   <div class="buttons">
     <button onclick="clearDisplay()" class="clear">C</button>
     <button onclick="appendToDisplay('√');" class="operator"><sup>2</sup>√</button>
     <button onclick="appendToDisplay('^')" class="operator"><sub>num</sub>^<sup>exponent</sup></button>
     <button onclick="appendToDisplay('%')" class="operator">%</button>
+    <button onclick="addToMemory()" class="memory-btn">M+</button>
+    <button onclick="subtractFromMemory()" class="memory-btn">M-</button>
+    <button onclick="memoryRecall()" class="memory-btn">MR</button>
+    <button onclick="clearMemory()" class="memory-btn">MC</button>
     <button onclick="appendToDisplay('/')" class="operator">/</button>
     <button onclick="appendToDisplay('7')">7</button>
     <button onclick="appendToDisplay('8')">8</button>
@@ -192,36 +211,80 @@
     <button onclick="appendToDisplay('.')">.</button>
     <button onclick="calculateResult()" class="equal">=</button>
     <button onclick="toggleDarkMode()" class="theme-toggle"></button>
+    <a href="https://github.com/theEvilGrinch/js-calculator?tab=readme-ov-file" class="back-to-github">Go to src
+      (GitHub)</a>
   </div>
 </section>
 <dialog class="js-errorDialog">
   <button onclick="clearDisplay();errorDialog.close();">
-    <span aria-hidden=”true”>❌ Close</span>
+    <span aria-hidden="true">❌ Close</span>
   </button>
   <p>Input error! Please enter a valid value, only numbers and mathematical operators available!</p>
 </dialog>
 <script>
-  const display = document.getElementById("display");
-  const errorDialog = document.querySelector(".js-errorDialog");
+  const display = document.getElementById('display');
+  const memoryDisplayValue = document.getElementById('memory-section__value')
+  const errorDialog = document.querySelector('.js-errorDialog');
+  let memory = 0;
 
   function appendToDisplay(value) {
     display.value += value;
   }
 
   function clearDisplay() {
-    display.value = "";
+    display.value = '';
+  }
+
+  function clearMemory() {
+    memoryDisplayValue.innerText = '0';
   }
 
   function calculateResult() {
     try {
-      let expression = display.value
+      const raw = display.value;
+
+      if (!raw.trim() || !/^[\d+\-*/().\s^%√]+$/.test(raw)) {
+        errorDialog.showModal();
+        return;
+      }
+
+      const expression = raw
       .replace(/√(\d+)/g, 'Math.sqrt($1)')
       .replace(/(\d+)\^(\d+)/g, 'Math.pow($1, $2)')
       .replace(/(\d+)%/g, '($1 / 100)');
+
       display.value = Function("return " + expression)();
     } catch {
       errorDialog.showModal();
     }
+  }
+
+  function addToMemory() {
+    calculateResult();
+    const value = parseFloat(display.value);
+    if (value) {
+      memory += value;
+      memoryDisplayValue.innerText = memory;
+      memoryDisplayValue.style.color = '#388e3c';
+      memoryDisplayValue.style.fontWeight = 'bold';
+    }
+  }
+
+  function subtractFromMemory() {
+    calculateResult();
+    const value = parseFloat(display.value);
+    if (value) {
+      memory -= value;
+      memoryDisplayValue.innerText = memory;
+      memoryDisplayValue.style.color = '#ff9800';
+      memoryDisplayValue.style.fontWeight = 'bold';
+    }
+  }
+
+  function memoryRecall() {
+    display.value = memory;
+    memoryDisplayValue.style.color = 'aqua';
+    memoryDisplayValue.style.fontWeight = 'bold';
   }
 
   display.addEventListener("keydown", function(event) {
@@ -240,7 +303,7 @@
   function toggleDarkMode() {
     let isColorThemeDark = window.matchMedia('(prefers-color-scheme: dark)');
     isColorThemeDark.matches ?
-        document.body.classList.toggle("light-mode") : document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode") : document.body.classList.toggle("dark-mode");
   }
 </script>
 </body>

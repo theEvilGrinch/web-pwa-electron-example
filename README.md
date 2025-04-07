@@ -1,7 +1,7 @@
 # Simple JavaScript Calculator
 
 ## Description
-This is a modern calculator built using HTML, CSS, and JavaScript. It features an adaptive design that responds to system color scheme preferences and provides a seamless user experience with enhanced accessibility.
+This is a modern calculator built using HTML, CSS, and JavaScript. It features an adaptive design that responds to system color scheme preferences and provides a seamless user experience with enhanced functionalities.
 
 ## Features
 - Supports basic arithmetic operations: addition (+), subtraction (-), multiplication (*), and division (/)
@@ -9,6 +9,11 @@ This is a modern calculator built using HTML, CSS, and JavaScript. It features a
   - Square root (√)
   - Exponentiation (with visual num^exponent notation)
   - Percentage calculations (%)
+- Memory functions:
+  - Add to memory (M+)
+  - Subtract from memory (M-)
+  - Recall memory (MR)
+  - Clear memory (MC)
 - Smart system theme integration:
   - Automatically adapts to system color scheme preferences
   - Manual theme toggle with smooth transitions
@@ -37,9 +42,15 @@ This is a modern calculator built using HTML, CSS, and JavaScript. It features a
 4. Toggle between light/dark themes using the palette button
    - Respects system color scheme by default
    - Allows manual override with persistent selection
+5. Utilize memory functions for enhanced calculations
 
 ## Live Demo
-Try the calculator here: <a href="https://theevilgrinch.github.io/js-calculator/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+Try the calculator here: [Live Demo](https://theevilgrinch.github.io/js-calculator/)
 
-## License
-This project is open-source and available under the MIT License.
+## ⚖️ License
+
+MIT Licensed - See [LICENSE](LICENSE) for details.
+
+---
+
+⚡ Maintained by [@theEvilGrinch](https://github.com/theEvilGrinch)
