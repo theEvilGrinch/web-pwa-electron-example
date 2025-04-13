@@ -1,0 +1,59 @@
+{
+  "name": "js-calculator",
+  "author": "Andrew Dmitriev",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theEvilGrinch/js-calculator"
+  },
+  "license": "MIT | https://github.com/theEvilGrinch/js-calculator/blob/master/LICENSE",
+  "bugs": {
+    "url": "https://github.com/theEvilGrinch/js-calculator/issues"
+  },
+  "homepage": "https://theevilgrinch.github.io/js-calculator/",
+  "description": "This is a modern calculator built using HTML, CSS, and JavaScript. It features an adaptive design that responds to system color scheme preferences and provides a seamless user experience with enhanced functionalities.",
+  "watch": {
+    "sass": {
+      "patterns": [
+        "styles/**/*.scss"
+      ],
+      "extensions": "scss"
+    },
+    "html_min": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "html"
+    },
+    "esbuild:js": "src/main.js",
+    "esbuild:css": "styles/main.css"
+  },
+  "scripts": {
+    "BUILD": "npm-run-all CLEAN sass esbuild:css --parallel copy-assets html_min esbuild:js",
+    "WATCH": "npm run BUILD && npm-watch & npm run browsersync",
+    "CLEAN": "node --input-type=module -e \"import fs from 'fs-extra'; fs.emptyDir('dist');\"",
+    "STYLELINT:FIX": "npx stylelint \"**/*.scss\" --fix",
+    "html_min": "html-minifier-terser --file-ext html --input-dir src --output-dir dist/ --process-scripts 'application/ld+json' --collapse-whitespace --remove-comments --minify-css",
+    "sass": "sass src/styles/main.scss:src/styles/main.css --no-source-map",
+    "esbuild:css": "esbuild src/styles/main.css --minify --tree-shaking=true --outdir=dist/",
+    "esbuild:js": "esbuild src/main.js --minify --keep-names --outdir=dist/",
+    "copy-assets": "node --input-type=module -e \"import fs from 'fs-extra'; fs.copy('assets', 'dist')\"",
+    "browsersync": "browser-sync start --server dist --files \"dist/*.html, dist/*.css, dist/*.js, !dist/*.svg, !dist/fonts/**\" -b firefox-developer-edition --inject-changes --no-notify"
+  },
+  "devDependencies": {
+    "@stylistic/stylelint-plugin": "3.1.2",
+    "browser-sync": "3.0.3",
+    "esbuild": "0.25.0",
+    "eslint": "9.22.0",
+    "fs-extra": "11.3.0",
+    "globals": "16.0.0",
+    "html-minifier-terser": "7.2.0",
+    "npm-run-all": "4.1.5",
+    "npm-watch": "0.13.0",
+    "postcss-scss": "4.0.9",
+    "sass": "1.85.1",
+    "stylelint": "16.16.0"
+  }
+}

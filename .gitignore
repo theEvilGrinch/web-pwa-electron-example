@@ -2,6 +2,8 @@
 .DS_Store
 Thumbs.db
 
+dist
+
 ### NodeJS ###
 logs
 *.log
@@ -47,7 +49,6 @@ web_modules/
 .next
 out
 .nuxt
-dist
 .cache/
 .vuepress/dist
 .temp
