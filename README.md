@@ -59,22 +59,33 @@ This is a modern calculator built using HTML, CSS, and JavaScript. It features a
 ## Project Structure
 ```
 .
-├── assets/                     # Static assets
-│   ├── fonts/                  # Web fonts in WOFF2 format
-│   └── images                  # Images and icons files
-├── src/                        # Source files
-│   ├── styles/                 # SCSS files
-│   │   ├── core/               # Core SCSS modules
-│   │   │   ├── _mixins.scss
-│   │   │   ├── _variables.scss
-│   │   │   └── _index.scss
-│   │   ├── _custom.scss
-│   │   ├── _fonts.scss
-│   │   └── main.scss
-│   ├── index.html              # Main HTML file
-│   └── main.js                 # JavaScript logic
-├── package.json                # Project configuration and dependencies
-└── README.md                   # Project documentation
+├── assets/                            # Static assets
+│   ├── fonts/                         # Web fonts in WOFF2 format
+│   └── img/                           # Images and icons
+│       ├── favicon.ico                # Basic favicon for legacy browsers
+│       ├── favicon.svg                # Vector favicon for modern browsers
+│       ├── favicon-16x16.png          # Classic favicon for legacy compatibility
+│       ├── favicon-32x32.png          # Enhanced favicon for high-DPI displays
+│       ├── favicon-48x48.png          # Windows pinned site tile
+│       ├── apple-touch-icon.png       # iOS home screen icon (180x180)
+│       ├── icon-192.png               # PWA icon for Android devices
+│       ├── icon-512.png               # PWA splash screen icon (512x512)
+│       ├── icon-mask.png              # Adaptive PWA icon with safe zone
+│       └── color-palette.svg          # Theme toggle icon
+├── src/                   
+│   ├── styles/            
+│   │   ├── core/                      # Core SCSS modules
+│   │   │   ├── _mixins.scss           # Reusable mixins (flex-text, visually-hidden)
+│   │   │   ├── _variables.scss        # Global variables (colors, fonts)
+│   │   │   └── _index.scss            # Core modules entry point
+│   │   ├── _custom.scss               # Custom styles and components
+│   │   ├── _fonts.scss                # Font-face declarations
+│   │   └── main.scss                  # Main SCSS entry point
+│   ├── index.html                     # Main HTML file
+│   ├── manifest.webmanifest           # PWA manifest file
+│   └── main.js                        # JavaScript logic
+├── package.json                       # Project configuration and dependencies
+└── README.md                          # Project documentation
 ```
 
 ## Development
