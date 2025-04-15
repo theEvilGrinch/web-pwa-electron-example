@@ -59,7 +59,7 @@ function subtractFromMemory() {
 }
 
 function memoryRecall() {
-  display.value = memory;
+  display.value += memory;
 }
 
 display.addEventListener("keydown", function(event) {

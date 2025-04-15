@@ -16,15 +16,11 @@
   "description": "This is a modern calculator built using HTML, CSS, and JavaScript. It features an adaptive design that responds to system color scheme preferences and provides a seamless user experience with enhanced functionalities.",
   "watch": {
     "sass": {
-      "patterns": [
-        "styles/**/*.scss"
-      ],
+      "patterns": ["styles/**/*.scss"],
       "extensions": "scss"
     },
     "html_min": {
-      "patterns": [
-        "src"
-      ],
+      "patterns": ["src"],
       "extensions": "html"
     },
     "esbuild:js": "src/main.js",
@@ -34,8 +30,9 @@
     "BUILD": "npm-run-all CLEAN sass esbuild:css --parallel copy-assets html_min esbuild:js",
     "WATCH": "npm run BUILD && npm-watch & npm run browsersync",
     "CLEAN": "node --input-type=module -e \"import fs from 'fs-extra'; fs.emptyDir('dist');\"",
-    "DEPLOY": "gh-pages -d dist",
     "STYLELINT:FIX": "npx stylelint \"**/*.scss\" --fix",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run BUILD",
     "html_min": "html-minifier-terser --file-ext html --input-dir src --output-dir dist/ --process-scripts 'application/ld+json' --collapse-whitespace --remove-comments --minify-css",
     "sass": "sass src/styles/main.scss:src/styles/main.css --no-source-map",
     "esbuild:css": "esbuild src/styles/main.css --minify --tree-shaking=true --outdir=dist/",
