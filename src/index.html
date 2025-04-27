@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculator</title>
   <link rel="icon" href="./favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="icon" href="./favicon.ico" sizes="32x32" type="image/png">
+  <link rel="icon" href="./favicon.ico" sizes="32x32" type="image/x-icon">
   <link rel="icon" href="./favicon-48x48.png" sizes="48x48" type="image/png">
   <link rel="icon" href="./favicon-32x32.png" sizes="32x32" type="image/png" >
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
@@ -36,39 +36,39 @@
     <span id="memory-section__value">0</span>
   </div>
   <section class="buttons-section">
-    <button onclick="clearDisplay()" class="clear">C</button>
-    <button onclick="appendToDisplay('√');" class="operator"><sup>2</sup>√</button>
-    <button onclick="appendToDisplay('^')" class="operator"><sub>num</sub>^<sup>exponent</sup></button>
-    <button onclick="appendToDisplay('%')" class="operator">%</button>
-    <button onclick="addToMemory()" class="memory-btn">M+</button>
-    <button onclick="subtractFromMemory()" class="memory-btn">M-</button>
-    <button onclick="memoryRecall()" class="memory-btn">MR</button>
-    <button onclick="clearMemory()" class="memory-btn">MC</button>
-    <button onclick="appendToDisplay('/')" class="operator">/</button>
-    <button onclick="appendToDisplay('7')">7</button>
-    <button onclick="appendToDisplay('8')">8</button>
-    <button onclick="appendToDisplay('9')">9</button>
-    <button onclick="appendToDisplay('*')" class="operator">*</button>
-    <button onclick="appendToDisplay('4')">4</button>
-    <button onclick="appendToDisplay('5')">5</button>
-    <button onclick="appendToDisplay('6')">6</button>
-    <button onclick="appendToDisplay('-')" class="operator">-</button>
-    <button onclick="appendToDisplay('1')">1</button>
-    <button onclick="appendToDisplay('2')">2</button>
-    <button onclick="appendToDisplay('3')">3</button>
-    <button onclick="appendToDisplay('+')" class="operator">+</button>
-    <button onclick="appendToDisplay('0')">0</button>
-    <button onclick="appendToDisplay('.')">.</button>
-    <button onclick="calculateResult()" class="equal">=</button>
-    <button onclick="toggleDarkMode()" class="theme-toggle"></button>
+    <button class="clear">C</button>
+    <button class="operator">2√</button>
+    <button class="operator">^exponent</button>
+    <button class="operator">%</button>
+    <button class="memory-btn">M+</button>
+    <button class="memory-btn">M-</button>
+    <button class="memory-btn">MR</button>
+    <button class="memory-btn">MC</button>
+    <button class="operator">/</button>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button class="operator">*</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button class="operator">-</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button class="operator">+</button>
+    <button>0</button>
+    <button>.</button>
+    <button class="equal">=</button>
+    <button aria-label="Toggle theme"></button>
     <a href="https://github.com/theEvilGrinch/js-calculator?tab=readme-ov-file" class="back-to-github">Go to src
       (GitHub)</a>
   </section>
 </section>
 
 <dialog class="js-errorDialog">
-  <button onclick="clearDisplay();errorDialog.close();">
-    <span aria-hidden="true">❌ Close</span>
+  <button>
+    <span aria-hidden="true">Close</span>
   </button>
   <p>Input error! Please enter a valid value, only numbers and mathematical operators available!</p>
 </dialog>

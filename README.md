@@ -114,7 +114,7 @@ This is a modern calculator built using HTML, CSS, and JavaScript. It features a
 - `npm run STYLELINT:FIX` - Fix SCSS styling issues
 
 ## Live Demo
-Try the calculator here: [Live Demo](https://theevilgrinch.github.io/js-calculator/)
+Try the calculator here: [Live Demo](https://theevilgrinch.github.io/yetAnotherApp/)
 
 ## ⚖️ License
 

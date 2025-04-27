@@ -242,7 +242,7 @@ button {
   font-family: "sft_medium", system-ui, sans-serif;
   padding: 15px;
   cursor: pointer;
-  border: none;
+  border: 1px solid #444444;
   border-radius: 5px;
   transition: transform 0.15s, background 0.3s, color 0.3s;
   font-size: round(to-zero, 14px + (32 - 14) * (100vw - 320px) / (3840 - 320), 1px);
@@ -259,12 +259,13 @@ button:active {
   transition: background 0.3s;
 }
 
-.theme-toggle {
-  background-image: url("/color-palette.svg");
+[aria-label="Toggle theme"] {
+  background-image: url("./color-palette.svg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 51px;
+  background-color: #c62828;
+  min-height: 57px;
 }
 
 .equal {

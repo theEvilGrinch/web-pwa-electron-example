@@ -1,7 +1,7 @@
 {
   "name": "js-calculator",
   "short_name": "calculator",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#2d2d2d",
   "theme_color": "#009cfb",
