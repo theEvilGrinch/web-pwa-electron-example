@@ -72,8 +72,8 @@ This is a modern calculator built using HTML, CSS, and JavaScript. It features a
 │       ├── icon-512.png               # PWA splash screen icon (512x512)
 │       ├── icon-mask.png              # Adaptive PWA icon with safe zone
 │       └── color-palette.svg          # Theme toggle icon
-├── src/                   
-│   ├── styles/            
+├── src/
+│   ├── styles/
 │   │   ├── core/                      # Core SCSS modules
 │   │   │   ├── _mixins.scss           # Reusable mixins (flex-text, visually-hidden)
 │   │   │   ├── _variables.scss        # Global variables (colors, fonts)
@@ -114,7 +114,7 @@ This is a modern calculator built using HTML, CSS, and JavaScript. It features a
 - `npm run STYLELINT:FIX` - Fix SCSS styling issues
 
 ## Live Demo
-Try the calculator here: [Live Demo](https://theevilgrinch.github.io/yetAnotherApp/)
+Try the calculator here: [Live Demo](https://theevilgrinch.github.io/js-calculator-app/)
 
 ## ⚖️ License
 
