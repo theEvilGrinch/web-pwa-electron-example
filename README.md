@@ -1,5 +1,17 @@
 # JavaScript calculator app 
 
+## Table of Contents
+
+- [Description](#description)
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Development](#development)
+  - [Prerequisites](#prerequisites)
+  - [Available Scripts](#available-scripts)
+- [License](#license)
+
 ## Description
 This is a modern calculator built with HTML, CSS, and JavaScript. It features an adaptive design that responds to system color scheme preferences and provides a seamless user experience with enhanced accessibility and performance optimizations. The calculator is a multi-platform application. <br>
 It includes:  
@@ -11,8 +23,8 @@ It includes:
 ## Features
 - Supports basic arithmetic operations: addition (+), subtraction (-), multiplication (*), and division (/)
 - Advanced mathematical functions:
-  - Square root (√)
-  - Exponentiation (with visual num^exponent notation)
+  - Square root (2√)
+  - Exponentiation (^exponent)
   - Percentage calculations (%)
 - Memory functions:
   - Add to memory (M+)
@@ -152,7 +164,19 @@ The application utilizes the following technologies:
 ## Live Demo
 Try the calculator here: [Live Demo](https://theevilgrinch.github.io/js-calculator-app/)
 
-## ⚖️ License
+You can install this app as a Progressive Web App (PWA) on supported browsers:
+
+- On **desktop** (Chrome/Chromium-based):
+  - Open the link.
+  - Click the install icon in the address bar or select "Install..." from the browser menu.
+
+- On **Android**:
+  - Open the link in Chrome.
+  - Tap the three-dot menu → **"Install app"**.
+
+After installation, the app will launch in standalone mode like a native application.
+
+## License
 
 MIT Licensed - See [LICENSE](LICENSE) for details.
 

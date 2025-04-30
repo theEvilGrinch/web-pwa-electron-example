@@ -94,7 +94,7 @@ self.addEventListener('fetch', (event) => {
             }
             return response;
           } catch {
-            return Response.redirect('/no-data-error.html', 302);
+            return Response.redirect('no-data-error.html', 302);
           }
         }
 
@@ -110,7 +110,7 @@ self.addEventListener('fetch', (event) => {
           return cachedResponse;
         }
       } catch {
-        return Response.redirect('/no-data-error.html', 302);
+        return Response.redirect('no-data-error.html', 302);
       }
     })()
   );

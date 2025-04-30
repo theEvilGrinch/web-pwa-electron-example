@@ -1,40 +1,40 @@
 {
   "name": "js-calculator-app",
   "short_name": "calculator",
-  "id": "/",
-  "start_url": "/",
+  "id": "./",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#2d2d2d",
   "theme_color": "#009cfb",
   "icons": [
-    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "/icon-mask.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" },
-    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+    { "src": "icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "icon-mask.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" },
+    { "src": "icon-512.png", "type": "image/png", "sizes": "512x512" }
   ],
   "screenshots": [
     {
-      "src": "/screenshot-mobile.png",
+      "src": "screenshot-mobile.png",
       "sizes": "750x1000",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Calculator mobile view"
     },
-  {
-      "src": "/screenshot-mobile-light.png",
+    {
+      "src": "screenshot-mobile-light.png",
       "sizes": "750x1000",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Calculator mobile view light theme"
     },
     {
-      "src": "/screenshot-tablet.png",
+      "src": "screenshot-tablet.png",
       "sizes": "1200x1600",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Calculator tablet view"
     },
     {
-      "src": "/screenshot-desktop.png",
+      "src": "screenshot-desktop.png",
       "sizes": "1920x1080",
       "type": "image/png",
       "form_factor": "wide",
