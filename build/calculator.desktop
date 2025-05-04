@@ -1,0 +1,10 @@
+
+[Desktop Entry]
+Version=1.2.0
+Type=Application
+Name=Calculator
+Comment=Modern calculator app built with Electron
+Exec=$HOME/<PATH_TO_APPIMAGE>/calculator.AppImage %U
+Icon=$HOME/<PATH_TO_ICON>/icon-256x256.png
+Terminal=false
+Categories=Utility;

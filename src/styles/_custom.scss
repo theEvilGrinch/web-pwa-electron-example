@@ -1,0 +1,188 @@
+@use "core";
+
+body {
+  color-scheme: light dark;
+  font-family: core.$font-family-regular;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background 0.3s, color 0.3s;
+
+  @include core.flex-text(18);
+}
+
+h1 {
+  @include core.visually-hidden();
+}
+
+h2 {
+  margin: 0 0 20px;
+
+  @include core.flex-text(22);
+}
+
+@include core.respond-to-max(768) {
+  h2 {
+    margin: 0;
+  }
+}
+
+input {
+  font-family: core.$font-family-alternate;
+  text-align: right;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.buttons-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
+}
+
+button {
+  font-family: core.$font-family-medium;
+  padding: 15px;
+  cursor: pointer;
+  border: 1px solid core.$GREY_COLOR;
+  border-radius: 5px;
+  transition: transform 0.15s, background 0.3s, color 0.3s;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  @include core.flex-text(14);
+}
+
+.calculator-body {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.2);
+  text-align: center;
+  transition: background 0.3s;
+}
+
+@include core.respond-to-max(768) {
+  .calculator-body {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+[aria-label="Toggle theme"] {
+  background-image: url("color-palette.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: core.$DARK_RED_COLOR;
+  min-height: 57px;
+}
+
+.equal {
+  background: core.$GREEN_COLOR;
+  color: core.$WHITE_COLOR;
+}
+
+.clear,
+[aria-label="Toggle theme"] {
+  background-color: core.$RED_COLOR;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.3);
+}
+
+dialog {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.operator {
+  background-color: core.$GOLD_COLOR;
+  color: core.$DARK_GREY_COLOR;
+}
+
+/* noinspection CssUnusedSymbol */
+.dark-mode {
+  background-color: core.$DARK_GREY_COLOR;
+  color: core.$WHITE_COLOR;
+  color-scheme: dark;
+
+  .calculator-body {
+    background: core.$GREY_COLOR;
+  }
+
+  .memory-btn {
+    background-color: core.$DARK_GREY_COLOR;
+  }
+}
+
+/* noinspection CssUnusedSymbol */
+.light-mode {
+  background-color: core.$WHITE_COLOR;
+  color: core.$DARK_GREY_COLOR;
+  color-scheme: light;
+
+  .calculator-body {
+    color-scheme: light;
+    background: core.$WHITE_COLOR;
+  }
+
+  .memory-btn {
+    background-color: core.$LIGHT_GREY;
+  }
+}
+
+.back-to-github {
+  grid-column: 2 / span 3;
+  align-content: center;
+}
+
+.memory-section {
+  font-family: core.$font-family-medium;
+  color: core.$DARK_RED_COLOR;
+  margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: core.$WHITE_COLOR;
+    color: core.$DARK_GREY_COLOR;
+  }
+
+  .calculator-body {
+    background: core.$WHITE_COLOR;
+  }
+
+  .memory-btn {
+    background-color: core.$LIGHT_GREY;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: core.$DARK_GREY_COLOR;
+    color: core.$WHITE_COLOR;
+  }
+
+  .calculator-body {
+    background: core.$GREY_COLOR;
+  }
+
+  .memory-btn {
+    background-color: core.$DARK_GREY_COLOR;
+  }
+}
