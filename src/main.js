@@ -1,40 +1,39 @@
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+  navigator.serviceWorker.register('./service-worker.js')
+    .catch((err) => {
+      console.error('serviceWorker register error:\n', err);
+    });
 }
-
-document
-  .querySelectorAll('noscript')
-  .forEach((noscriptTag) => noscriptTag.remove());
 
 const display = document.getElementById('display');
 const memoryDisplayValue = document.getElementById('memory-section__value');
 const errorDialog = document.querySelector('.js-errorDialog');
 const htmlButtons = document.querySelectorAll('button');
 const buttonsLogic = {
-  0: { action: () => appendToDisplay(0) },
-  1: { action: () => appendToDisplay(1) },
-  2: { action: () => appendToDisplay(2) },
-  3: { action: () => appendToDisplay(3) },
-  4: { action: () => appendToDisplay(4) },
-  5: { action: () => appendToDisplay(5) },
-  6: { action: () => appendToDisplay(6) },
-  7: { action: () => appendToDisplay(7) },
-  8: { action: () => appendToDisplay(8) },
-  9: { action: () => appendToDisplay(9) },
-  C: { action: () => clearDisplay() },
-  '/': { action: () => appendToDisplay('/') },
-  '*': { action: () => appendToDisplay('*') },
-  '+': { action: () => appendToDisplay('+') },
-  '-': { action: () => appendToDisplay('-') },
-  '.': { action: () => appendToDisplay('.') },
-  '=': { action: () => calculateResult() },
-  '2√': { action: () => appendToDisplay('√') },
-  '^exponent': { action: () => appendToDisplay('^') },
-  '%': { action: () => appendToDisplay('%') },
-  'M+': { action: () => addToMemory() },
-  'M-': { action: () => subtractFromMemory() },
-  MR: { action: () => memoryRecall() },
-  MC: { action: () => clearMemory() },
+  0: {action: () => appendToDisplay(0)},
+  1: {action: () => appendToDisplay(1)},
+  2: {action: () => appendToDisplay(2)},
+  3: {action: () => appendToDisplay(3)},
+  4: {action: () => appendToDisplay(4)},
+  5: {action: () => appendToDisplay(5)},
+  6: {action: () => appendToDisplay(6)},
+  7: {action: () => appendToDisplay(7)},
+  8: {action: () => appendToDisplay(8)},
+  9: {action: () => appendToDisplay(9)},
+  C: {action: () => clearDisplay()},
+  '/': {action: () => appendToDisplay('/')},
+  '*': {action: () => appendToDisplay('*')},
+  '+': {action: () => appendToDisplay('+')},
+  '-': {action: () => appendToDisplay('-')},
+  '.': {action: () => appendToDisplay('.')},
+  '=': {action: () => calculateResult()},
+  '2√': {action: () => appendToDisplay('√')},
+  '^exponent': {action: () => appendToDisplay('^')},
+  '%': {action: () => appendToDisplay('%')},
+  'M+': {action: () => addToMemory()},
+  'M-': {action: () => subtractFromMemory()},
+  MR: {action: () => memoryRecall()},
+  MC: {action: () => clearMemory()},
   Close: {
     action: () => {
       clearDisplay();
@@ -112,7 +111,7 @@ function memoryRecall() {
   display.value += memory;
 }
 
-display.addEventListener('keydown', function (event) {
+display.addEventListener('keydown', function(event) {
   if (
     (event.code === 'Enter' || event.code === 'NumpadEnter') &&
     display.value !== ''
@@ -120,7 +119,7 @@ display.addEventListener('keydown', function (event) {
     calculateResult();
   }
 });
-document.addEventListener('keydown', function (event) {
+document.addEventListener('keydown', function(event) {
   if (event.code === 'Escape') {
     clearDisplay();
     errorDialog.close();

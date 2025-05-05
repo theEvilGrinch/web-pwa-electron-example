@@ -8,7 +8,6 @@ export default [
       quotes: ['error', 'single'],
       indent: ['error', 2],
       'no-unused-vars': 'warn',
-      'no-console': 'warn',
       curly: 'error',
       eqeqeq: 'error',
       'no-eval': 'error',

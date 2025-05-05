@@ -16,7 +16,7 @@
   "description": "This is a modern calculator built using HTML, CSS, and JavaScript. It features an adaptive design that responds to system color scheme preferences and provides a seamless user experience with enhanced functionalities.",
   "scripts": {
     "BUILD": "node build.js",
-    "WATCH": "node watch.js",
+    "DEV": "NODE_ENV=development node watch.js",
     "CLEAN": "node --input-type=module -e \"import fs from 'fs-extra'; fs.emptyDir('dist');\"",
     "STYLELINT:FIX": "npx stylelint \"**/*.scss\" --fix",
     "ESLINT:FIX": "npx eslint \"**/*.js\" --fix",

@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+ 
 import {watch} from 'fs';
 import browserSync from 'browser-sync';
 import {bundleJs, minifyHTML, compileSass} from './build.js';

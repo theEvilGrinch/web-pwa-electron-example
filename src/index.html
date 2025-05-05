@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculator app</title>
+  <meta name="description" content="This is a modern calculator built using HTML, CSS, and JavaScript. It features an adaptive design that responds to system color scheme preferences and provides a seamless user experience with enhanced functionalities.">
   <link rel="icon" href="./favicon.ico" sizes="32x32" type="image/x-icon">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="icon" href="./favicon-16x16.png" sizes="16x16" type="image/png">
@@ -11,15 +12,12 @@
   <link rel="icon" href="./favicon-48x48.png" sizes="48x48" type="image/png">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" type="image/png">
   <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="preload" href="./main.css" as="style">
   <script src="./main.js" defer></script>
   <link rel="preload" href="./fonts/sft_regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./fonts/sft_medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./fonts/firacode_regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./main.css" as="style"
-        onload="this.rel='stylesheet'; this.removeAttribute('as'); this.removeAttribute('onload')">
-  <noscript>
-    <link rel="stylesheet" href="./main.css">
-  </noscript>
+  <link rel="stylesheet" href="./main.css">
 </head>
 <body>
 

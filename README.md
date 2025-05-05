@@ -154,7 +154,7 @@ The application utilizes the following technologies:
 
 ### Available Scripts
 - `npm run BUILD` - Create production build
-- `npm run WATCH` - Start development server with hot reload
+- `npm run DEV` - Start development server with hot reload
 - `npm run CLEAN` - Clean dist directory
 - `npm run STYLELINT:FIX` - Fix SCSS styling issues
 - `npm run ESLINT:FIX` - Fix JS issues
@@ -162,7 +162,7 @@ The application utilizes the following technologies:
 - `npm run predeploy` - Prepare the application for deployment
 
 ## Live Demo
-Try the calculator here: [Live Demo](https://theevilgrinch.github.io/js-calculator-app/)
+Try the calculator here: [Live Demo](https://theevilgrinch.github.io/calculator-web-pwa-electron/)
 
 You can install this app as a Progressive Web App (PWA) on supported browsers:
 

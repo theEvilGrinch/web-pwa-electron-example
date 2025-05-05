@@ -88,7 +88,11 @@ export const config = {
     minify: true,
     bundle: false,
     format: 'esm',
-    sourcemap: false
+    sourcemap: false,
+    define: {
+      DEV_MODE: JSON.stringify(process.env.NODE_ENV === 'development')
+    },
+    drop: process.env.NODE_ENV === 'development' ? [] : ['console', 'debugger']
   },
   images: {
     jpeg: {quality: 75, mozjpeg: true},

@@ -25,41 +25,50 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => cache.addAll(STATIC_ASSETS))
-      .catch(() => {
+      .catch((err) => {
+        console.log('serviceWorker install error:', err);
       })
   );
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys()
-      .then(cacheNames => {
-        const promises = [];
+  try {
+    event.waitUntil(
+      caches.keys()
+        .then(cacheNames => {
+          const promises = [];
 
-        for (const name of cacheNames) {
-          if (name !== CACHE_NAME) {
-            promises.push(caches.delete(name));
+          for (const name of cacheNames) {
+            if (name !== CACHE_NAME) {
+              promises.push(caches.delete(name));
+            }
           }
-        }
 
-        return Promise.all(promises);
-      })
-      .then(() => self.clients.claim())
-  );
+          return Promise.all(promises);
+        })
+        .then(() => self.clients.claim())
+    );
+  } catch (err) {
+    console.error('serviceWorker activate error:', err);
+  }
 });
 
 async function hasServerChanges(request, cachedResponse) {
   try {
     const serverResponse = await fetch(request, {cache: 'no-store'});
-    if (!serverResponse.ok) {return false;}
+    if (!serverResponse.ok) {
+      return false;
+    }
 
     const serverETag = serverResponse.headers.get('ETag');
     const serverLastModified = serverResponse.headers.get('Last-Modified');
     const cachedETag = cachedResponse ? cachedResponse.headers.get('ETag') : null;
     const cachedLastModified = cachedResponse ? cachedResponse.headers.get('Last-Modified') : null;
 
-    if (!serverETag && !serverLastModified) {return true;}
+    if (!serverETag && !serverLastModified) {
+      return true;
+    }
 
     const hasETagChanged = serverETag && serverETag !== cachedETag;
     const hasLastModifiedChanged = serverLastModified && serverLastModified !== cachedLastModified;
