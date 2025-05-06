@@ -94,11 +94,11 @@ calculator-web-pwa-electron/
 │   ├── icon.icns                       # macOS icon
 │   └── other electron specific files
 ├── src/                                # Source code for the application
-│   ├── main.electron.js                # Electron main process file
 │   ├── main.js                         # Main JavaScript logic for the application
 │   ├── styles/                         # SCSS stylesheets for the application
 │   └── index.html                      # HTML entry point for the application
 ├── LICENSE                             # License file
+├── main.electron.js                    # Electron main process file
 ├── build.config.js                     # Build configuration file for the web version
 ├── build.js                            # Build script for the web version
 ├── package.json                        # Project metadata and dependencies

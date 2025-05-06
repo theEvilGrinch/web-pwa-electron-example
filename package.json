@@ -17,7 +17,7 @@
   "description": "This is a modern calculator built using HTML, CSS, and JavaScript. It features an adaptive design that responds to system color scheme preferences and provides a seamless user experience with enhanced functionalities.",
   "scripts": {
     "build": "node build.js",
-    "build:electron": "npm run build && npm run icon-gen && electron-builder",
+    "build:electron": "npm run build && npm run icons && electron-builder",
     "build:electron-cross-platform": "npm run build && electron-builder --win --mac --linux",
     "start:electron": "npm run build && concurrently \"npm run watch\" \"electronmon --trace-warnings .\"",
     "icons": "node generate-icons.js",
