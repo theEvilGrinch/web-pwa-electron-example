@@ -12,10 +12,10 @@ await mkdir(outDir, { recursive: true });
 
 const pngBuffer = await readFile(src);
 
-const icoBuffer = png2icons.createICO(pngBuffer, png2icons.BICUBIC, 0, false);
+const icoBuffer = png2icons.createICO(pngBuffer, 0, 0, true);
 await writeFile(path.join(outDir, 'icon.ico'), icoBuffer);
 
-const icnsBuffer = png2icons.createICNS(pngBuffer, png2icons.BICUBIC, 0);
+const icnsBuffer = png2icons.createICNS(pngBuffer, 0, 0);
 
 await writeFile(path.join(outDir, 'icon.icns'), icnsBuffer);
 
