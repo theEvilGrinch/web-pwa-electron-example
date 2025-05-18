@@ -1,4 +1,4 @@
-# JavaScript Calculator App - Electron
+# Cross-Platform JavaScript Calculator (Electron Desktop App)
 
 ## Table of Contents
 
@@ -26,6 +26,14 @@ It includes:
 - PWA version (available in the `PWA` branch).
 - **Electron Desktop App** (this branch).
 
+## Live Demo
+
+Try the calculator here: [Live PWA Demo](https://theevilgrinch.github.io/calculator-web-pwa-electron/).
+
+**App Screenshots:**
+
+| ![](build/screenshot-light.png) | ![](build/screenshot-dark.png) |
+|:-------------------------------:|:-------------------------------:|
 ## Features
 
 - Supports basic arithmetic operations: addition (+), subtraction (-), multiplication (*), and division (/).
@@ -220,10 +228,6 @@ Double-click the `.exe` installer in the `build/` directory and follow the on-sc
 Extract the `.zip` file and move the application to your `Applications` folder.
 
 **Note:** Replace `<version>` with the actual version number of the generated files.
-
-## Live Demo
-
-Try the calculator here: [Live PWA Demo](https://theevilgrinch.github.io/calculator-web-pwa-electron/).
 
 ## License
 
