@@ -2,6 +2,7 @@ const CACHE_NAME = 'sw-cache-__swTimestamp__';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
+  '/404.html',
   '/no-data-error.html',
   '/main.css',
   '/main.js',
@@ -18,16 +19,18 @@ const STATIC_ASSETS = [
   '/icon-192.png',
   '/icon-512.png',
   '/icon-mask.png',
+  '/screenshot-desktop.png',
+  '/screenshot-mobile.png',
+  '/screenshot-mobile-light.png',
+  '/screenshot-tablet.png',
   '/manifest.webmanifest'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(STATIC_ASSETS))
-      .catch((err) => {
-        console.log('serviceWorker install error:', err);
-      })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS)).catch((err) => {
+      console.log('serviceWorker install error:', err);
+    })
   );
   self.skipWaiting();
 });
@@ -35,19 +38,17 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   try {
     event.waitUntil(
-      caches.keys()
-        .then(cacheNames => {
-          const promises = [];
+      caches.keys().then(cacheNames => {
+        const promises = [];
 
-          for (const name of cacheNames) {
-            if (name !== CACHE_NAME) {
-              promises.push(caches.delete(name));
-            }
+        for (const name of cacheNames) {
+          if (name !== CACHE_NAME) {
+            promises.push(caches.delete(name));
           }
+        }
 
-          return Promise.all(promises);
-        })
-        .then(() => self.clients.claim())
+        return Promise.all(promises);
+      }).then(() => self.clients.claim())
     );
   } catch (err) {
     console.error('serviceWorker activate error:', err);

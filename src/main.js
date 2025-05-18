@@ -28,7 +28,7 @@ const buttonsLogic = {
   '.': {action: () => appendToDisplay('.')},
   '=': {action: () => calculateResult()},
   '2√': {action: () => appendToDisplay('√')},
-  '^exponent': {action: () => appendToDisplay('^')},
+  '^exp': {action: () => appendToDisplay('^')},
   '%': {action: () => appendToDisplay('%')},
   'M+': {action: () => addToMemory()},
   'M-': {action: () => subtractFromMemory()},

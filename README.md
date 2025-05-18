@@ -24,7 +24,7 @@ It includes:
 - Supports basic arithmetic operations: addition (+), subtraction (-), multiplication (*), and division (/)
 - Advanced mathematical functions:
   - Square root (2√)
-  - Exponentiation (^exponent)
+  - Exponentiation (^exp)
   - Percentage calculations (%)
 - Memory functions:
   - Add to memory (M+)
