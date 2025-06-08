@@ -19,7 +19,7 @@
     "build": "node build.js",
     "build:electron": "npm run build && npm run icons && electron-builder",
     "build:electron-cross-platform": "npm run build && electron-builder --win --mac --linux",
-    "start:electron": "npm run build && concurrently \"npm run watch\" \"electronmon --trace-warnings .\"",
+    "start:electron": "npm run build && concurrently \"npm run watch\" \"NODE_ENV=development electronmon --trace-warnings .\"",
     "icons": "node generate-icons.js",
     "watch": "node watch.js",
     "clean:build": "node -e \"import { deleteSync } from 'del'; deleteSync(['build/*', '!build/**/', '!build/*.{png,icns,ico,yml,desktop}']);\"",

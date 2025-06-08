@@ -29,14 +29,13 @@ const createWindow = () => {
     }
   });
 
-  win.loadFile(path.join(__dirname, 'dist/index.html')).catch(() => {
-  });
+  win.loadFile(path.join(__dirname, 'dist', 'index.html')).catch(() => {});
 
   if (screenWidth <= 576) {
     win.maximize();
   }
 
-  win.webContents.openDevTools();
+ if (process.env.NODE_ENV === 'development') win.webContents.openDevTools();
 };
 
 app.whenReady().then(() => {
