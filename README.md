@@ -33,7 +33,7 @@ Try the calculator here: [Live PWA Demo](https://theevilgrinch.github.io/calcula
 **App Screenshots:**
 
 | ![](build/screenshot-light.png) | ![](build/screenshot-dark.png) |
-|:-------------------------------:|:-------------------------------:|
+|:-------------------------------:|:------------------------------:|
 ## Features
 
 - Supports basic arithmetic operations: addition (+), subtraction (-), multiplication (*), and division (/).

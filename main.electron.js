@@ -10,13 +10,10 @@ const createWindow = () => {
   let windowWidth, windowHeight;
   if (screenWidth <= 576) {
     windowWidth = 360;
-    windowHeight = 640;
-  } else if (screenWidth <= 1024) {
-    windowWidth = 800;
-    windowHeight = 640;
+    windowHeight = 630;
   } else {
-    windowWidth = 1024;
-    windowHeight = 768;
+    windowWidth = 480;
+    windowHeight = 620;
   }
 
   const win = new BrowserWindow({
