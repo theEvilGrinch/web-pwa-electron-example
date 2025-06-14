@@ -1,92 +1,96 @@
-# Cross-Platform JavaScript Calculator (Electron Desktop App)
+# Calculator Application
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
+[![Support me on Boosty](https://img.shields.io/badge/Boosty-Support%20me-%23f15f2c?style=for-the-badge)](https://boosty.to/theEvilGrinch/donate)
+[![Donate](https://img.shields.io/badge/Donate-%23702ff4?style=for-the-badge)](https://yoomoney.ru/to/410016288289737)
+
+A professional-grade calculator application available in three distinct versions.
+
+## Available Versions
+
+1. **Web Version** (`main` branch) - Standard web-based calculator
+2. **Progressive Web App (PWA)** (`PWA` branch) - Installable web application with offline capabilities
+3. **Desktop Application** (`electron` branch) - Native desktop application built with Electron
 
 ## Table of Contents
 
-- [Description](#description)
-- [Live Demo](#live-demo)
 - [Features](#features)
+- [Live Demo](#live-demo)
 - [Technologies Used](#technologies-used)
 - [Project Structure](#project-structure)
 - [Development](#development)
   - [Prerequisites](#prerequisites)
   - [Available Scripts](#available-scripts)
   - [Build and Installation](#build-and-installation)
-    - [1. Clone the Repository](#1-clone-the-repository)
-    - [2. Install Dependencies](#2-install-dependencies)
-    - [3. Build the Application](#3-build-the-application)
-    - [4. Install the Application](#4-install-the-application)
 - [License](#license)
 
-## Description
+## Features
 
-This is a modern calculator built with HTML, CSS, JavaScript, and now extended with Electron for desktop application support. It features an adaptive design that responds to system color scheme preferences and provides a seamless user experience with enhanced accessibility.
+### Core Functionality
+- Basic arithmetic operations: addition (+), subtraction (-), multiplication (*), division (/)
+- Advanced mathematical functions:
+  - Square root (√)
+  - Exponentiation (x^y)
+  - Percentage calculations
 
-It includes:
-- Web version (available in the `main` branch).
-- PWA version (available in the `PWA` branch).
-- **Electron Desktop App** (this branch).
+### Memory Functions
+- M+: Add current value to memory
+- M-: Subtract from memory
+- MR: Recall memory value
+- MC: Clear memory
+- Visual memory indicator
+
+### User Interface
+- Responsive design for all screen sizes
+- Light and dark theme support
+- System theme detection
+- Keyboard navigation
+- Visual feedback on interactions
+
+### Progressive Web App Features
+- Installable on devices
+- Offline functionality
+- App-like experience
+- Service worker caching
+- Web App Manifest
+
+### Desktop Application Features
+- Native desktop integration
+- System tray support
+- Global keyboard shortcuts
+- Automatic updates
+- Native notifications
 
 ## Live Demo
 
-Try the calculator here: [Live PWA Demo](https://theevilgrinch.github.io/calculator-web-pwa-electron/).
+Try PWA version: [Live Demo](https://theevilgrinch.github.io/calculator-web-pwa-electron/)
 
-**App Screenshots:**
+**Screenshots:**
 
-| ![](build/screenshot-light.png) | ![](build/screenshot-dark.png) |
-|:-------------------------------:|:------------------------------:|
-## Features
-
-- Supports basic arithmetic operations: addition (+), subtraction (-), multiplication (*), and division (/).
-- Advanced mathematical functions:
-  - Square root (2√).
-  - Exponentiation (^exponent).
-  - Percentage calculations (%).
-- Memory functions:
-  - Add to memory (M+).
-  - Subtract from memory (M-).
-  - Recall memory (MR).
-  - Clear memory (MC).
-  - Visual memory value display.
-- Smart system theme integration:
-  - Automatically adapts to system color scheme preferences.
-  - Manual theme toggle with smooth transitions.
-  - Persistent theme selection.
-- Enhanced user experience:
-  - Input field with autofocus.
-  - Support for both Enter and NumpadEnter keys.
-  - Escape key support for clearing input.
-  - Responsive design with fluid typography.
-  - Clear visual feedback on button interactions.
-  - Comprehensive error handling with modal dialogs.
-- Accessibility features:
-  - Semantic HTML structure.
-  - Proper ARIA attributes.
-  - Keyboard navigation support.
-  - High contrast color scheme.
-  - Screen reader friendly headings.
-- Performance optimizations:
-  - Preloaded stylesheets.
-  - Modern CSS features utilization.
+| Light Theme                                | Dark Theme                               |
+|--------------------------------------------|------------------------------------------|
+| ![Light Theme](build/screenshot-light.png) | ![Dark Theme](build/screenshot-dark.png) |
 
 ## Technologies Used
 
-The application utilizes the following technologies:
+### Frontend
+- HTML5 with semantic markup
+- CSS3/SCSS with custom properties
+- JavaScript (ES6+)
 
-- **HTML5 with semantic markup**: Structure of the application.
-- **CSS3/SCSS**: Styling and responsive design.
-  - Custom mixins and variables.
-  - Modular architecture.
-  - Modern CSS features.
-- **JavaScript (ES6+)**: Core logic for the calculator.
-  - Event Delegation.
-  - Modern DOM APIs.
-  - Error Handling.
-  - Regular Expressions.
-- **Node.js**: Development environment and build tools.
-- **npm**: Dependency management and script execution.
-- **Electron**: Desktop application framework.
-- **Electron Builder**: Cross-platform build and packaging for Electron apps.
-- **ESBuild**: Bundler for JavaScript files.
+### Build Tools
+- Node.js
+- npm
+- ESBuild
+- Electron (for desktop version)
+- Electron Builder
+
+### Development Tools
+- ESLint
+- Stylelint
+- Prettier
+- Git
 
 ## Project Structure
 
@@ -216,10 +220,9 @@ After building, follow the instructions below to install the application dependi
      ./calculator-<version>.AppImage
      ```
 2. **For `.deb`**:
-   - Install the package:
-     ```bash
-     sudo dpkg -i calculator-<version>.deb
-     ```
+   ```bash
+   sudo dpkg -i calculator-<version>.deb
+   ```
 
 **Windows (`.exe`)** <br>
 Double-click the `.exe` installer in the `build/` directory and follow the on-screen instructions to complete the installation.
@@ -228,6 +231,10 @@ Double-click the `.exe` installer in the `build/` directory and follow the on-sc
 Extract the `.zip` file and move the application to your `Applications` folder.
 
 **Note:** Replace `<version>` with the actual version number of the generated files.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
