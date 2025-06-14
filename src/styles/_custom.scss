@@ -17,15 +17,9 @@ h1 {
 }
 
 h2 {
-  margin: 0 0 20px;
+  margin: 0 0 5px;
 
-  @include core.flex-text(22);
-}
-
-@include core.respond-to-max(768) {
-  h2 {
-    margin: 0;
-  }
+  @include core.flex-text(20);
 }
 
 input {
@@ -54,23 +48,16 @@ button {
     transform: scale(0.9);
   }
 
-  @include core.flex-text(14);
+  @include core.flex-text(18);
 }
 
 .calculator-body {
-  padding: 20px;
+  width: 100%;
+  padding: 10px 10px 0 10px;
+  height: 100%;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 0.2);
   text-align: center;
   transition: background 0.3s;
-}
-
-@include core.respond-to-max(768) {
-  .calculator-body {
-    padding: 10px;
-    width: 100%;
-    height: 100%;
-  }
 }
 
 [aria-label="Toggle theme"] {
@@ -144,7 +131,7 @@ dialog {
 .memory-section {
   font-family: core.$font-family-medium;
   color: core.$DARK_RED_COLOR;
-  margin-bottom: 10px;
+  margin: 5px 0;
 }
 
 @keyframes fadeIn {
