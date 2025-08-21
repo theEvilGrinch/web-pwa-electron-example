@@ -162,7 +162,7 @@ The application utilizes the following technologies:
 - `npm run predeploy` - Prepare the application for deployment
 
 ## Live Demo
-Try the calculator here: [Live Demo](https://theevilgrinch.github.io/calculator-web-pwa-electron/)
+Try the calculator here: [Live Demo](https://theevilgrinch.github.io/web-pwa-electron-example/)
 
 You can install this app as a Progressive Web App (PWA) on supported browsers:
 
