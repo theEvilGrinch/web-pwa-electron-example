@@ -64,7 +64,7 @@ A professional-grade calculator application available in three distinct versions
 
 ## Live Demo
 
-Try PWA version: [Live Demo](https://theevilgrinch.github.io/calculator-web-pwa-electron/)
+Try PWA version: [Live Demo](https://theevilgrinch.github.io/web-pwa-electron-example/)
 
 **Screenshots:**
 
